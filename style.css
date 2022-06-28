@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
+    background-color: red;
 }
 
 #Header {
@@ -14,17 +14,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items:  center;
-    margin: 200px auto;
+    align-items:  stretch;
+    margin: 25px auto;
     width: 50%;
-    height: auto;
+    aspect-ratio: 1/1;
 }
 
-.cells {
-    flex-basis: auto;
-    border: 2px solid white;
-    /* background-color: white; */
-    width: 5.00%;
+div > #cells {
+    display: flex;
+    width: 5.5%;
     flex-grow: 1;
-    min-height: auto;
+    background-color: white;
 }
