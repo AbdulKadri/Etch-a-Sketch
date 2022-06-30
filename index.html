@@ -7,15 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
-    <script src="java.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <h1 id="Header">Etch-a-Sketch</h1>
 
+    
+    <div class="settings">
+        <input type="color" value="#FF0000" id="colorChoice">
+        <button id="chooseColor" value="color" onclick="changeColor(this.value);">🖊️ Color</button>
+        <button id="RGB" value="rainbow" onclick="changeColor(this.value);">🌈 Rainbow</button>
+        <button id="erase" value="erase" onclick="changeColor(this.value);">🧹 Erase</button>
+        <button id="clear" onclick="changeColor(this.value);">🆑 Clear</button>
+        <div class="slider">
+            <p id="sizeValue">16 x 16</p>
+            <input type="range" id="sizeSlider" value="16" min="1" max="64">
+        </div>
+    </div>
+    
     <div id="container"></div>
-
-
 </body>
 
 </html>
