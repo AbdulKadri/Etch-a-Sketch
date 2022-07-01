@@ -2,7 +2,7 @@ const defaultColor = '#FF0000'
 let newColor = defaultColor;
 let cells;
 
-const grid = document.getElementById('container');
+const grid = document.getElementById('grid');
 const colorChoice = document.getElementById('colorChoice')
 const chooseColor = document.getElementById('chooseColor');
 const RGB = document.getElementById('RGB');
@@ -21,16 +21,19 @@ function setColor(value) {
 
 // Creating the grid
 function makeGrid(side) {
-    for (let x = 0; x < (side * side); x++) {
-        cells = document.createElement('div');
-        cells.setAttribute('id', 'cells');
-        cells.addEventListener('mouseover', changeColor)
-        cells.addEventListener('mousedown', changeColor)
-        grid.appendChild(cells);
-    };
+    grid.style.gridTemplateColumns = `repeat(${side}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${side}, 1fr)`
+
+    for (let x = 0; x < side ** 2; x++) {
+        const gridPixel = document.createElement('div');
+        gridPixel.setAttribute('id', 'pixels');
+        gridPixel.addEventListener('mouseover', changeColor);
+        // gridPixel.addEventListener('mousedown', changeColor);
+        grid.appendChild(gridPixel);
+    }
 };
 
-makeGrid(16);
+makeGrid(32);
 
 //Only allow colouring if mouse is clicked down and dragged across the box
 // must add another function with code below
