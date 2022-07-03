@@ -16,8 +16,8 @@ body {
 
 #grid {
     display: grid;
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 6px;
     margin: auto;
