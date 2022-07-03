@@ -1,4 +1,14 @@
 let currentButton = 'color'
+let currentColor = 'FF0000'
+
+function setColor(newButton) {
+    currentButton = newButton
+}
+
+function clearGrid() {
+    grid.innerHTML = ''
+    makeGrid(16)
+}
 
 const grid = document.getElementById('grid');
 const colorChoice = document.getElementById('colorChoice');
@@ -9,14 +19,14 @@ const clear = document.getElementById('clear');
 const sizeValue = document.getElementById('sizeValue');
 const sideSlider = document.getElementById('sizeSlider');
 
-// colorChoice.oninput = (e) => setColor(e.target.value);
+colorChoice.addEventListener('input', (e) => {
+    currentColor = e.target.value
+})
 erase.onclick = () => setColor('erase')
 chooseColor.onclick = () => setColor('color')
 RGB.onclick = () => setColor('rainbow')
+clear.onclick = () => clearGrid()
 
-function setColor(newButton) {
-    currentButton = newButton
-}
 
 // Creating the grid
 function makeGrid(side) {
@@ -39,9 +49,9 @@ document.body.onmouseup = () => (mouseClick = false)
 
 function changeColor(e) {
     if (e.type === 'mouseover' && !mouseClick) return
-    // e.target.style.backgroundColor = '#FF0000'
     if (currentButton === 'color') {
-        e.target.style.backgroundColor = '#FF0000'
+        e.target.style.backgroundColor = currentColor
+        console.log(currentColor)
     } else if (currentButton === 'erase') {
         e.target.style.backgroundColor = '#FFFFFF'
     } else if (currentButton === 'rainbow') {
