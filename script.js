@@ -1,5 +1,5 @@
 let currentButton = 'color'
-let currentColor = 'FF0000'
+let currentColor;
 
 function setColor(newButton) {
     currentButton = newButton
@@ -22,9 +22,24 @@ const sideSlider = document.getElementById('sizeSlider');
 colorChoice.addEventListener('input', (e) => {
     currentColor = e.target.value
 })
-erase.onclick = () => setColor('erase')
-chooseColor.onclick = () => setColor('color')
-RGB.onclick = () => setColor('rainbow')
+erase.onclick = () => {
+    setColor('erase')
+    erase.classList.add('active')
+    chooseColor.classList.remove('active')
+    RGB.classList.remove('active')
+}
+chooseColor.onclick = () => {
+    setColor('color')
+    chooseColor.classList.add('active')
+    erase.classList.remove('active')
+    RGB.classList.remove('active')
+}
+RGB.onclick = () => {
+    setColor('rainbow')
+    RGB.classList.add('active')
+    erase.classList.remove('active')
+    chooseColor.classList.remove('active')
+}
 clear.onclick = () => clearGrid()
 
 
@@ -66,4 +81,6 @@ console.log(currentButton)
 
 window.onload = () => {
     makeGrid(16)
+    currentColor = 'rgb(255, 0, 0)'
+    chooseColor.classList.add('active')
 }
