@@ -1,3 +1,3 @@
 # Etch-a-Sketch
 
-[check it out here](Users/abdul/Odin-Projects/Etch-a-Sketch/index.html)
+[check it out here](https://abdulkadri.github.io/Etch-a-Sketch/)
