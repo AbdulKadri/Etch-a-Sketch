@@ -7,7 +7,6 @@ function setColor(newButton) {
 
 function clearGrid() {
     grid.innerHTML = ''
-    makeGrid(16)
 }
 
 const grid = document.getElementById('grid');
@@ -41,6 +40,18 @@ RGB.onclick = () => {
     chooseColor.classList.remove('active')
 }
 clear.onclick = () => clearGrid()
+
+sideSlider.onmousemove = (e) => updateValue(e.target.value)
+sideSlider.onchange = (e) => changeSize(e.target.value)
+
+function updateValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`
+}
+
+function changeSize(newSize) {
+    clearGrid()
+    makeGrid(newSize)
+}
 
 
 // Creating the grid
